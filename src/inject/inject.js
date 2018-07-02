@@ -1,8 +1,4 @@
-chrome.extension.sendMessage({}, function (response) {
-    if ((window.location.pathname.split('/')[2] !== "cache" && window.location.pathname.split('/')[3] !== "view") || !document.getElementById("addressList")) {
-        return false;
-    }
-    var addresses = [];
+	var addresses = [];
 
     //getting script tag from page which makes addresses array
     var scripts = document.getElementsByTagName("script");
@@ -32,4 +28,3 @@ chrome.extension.sendMessage({}, function (response) {
     var BAlink = '<a href="' + googlemapsBA + '" class="btn btn-xs btn-default" target="_blank">B->A <span class="glyphicon glyphicon-globe"></span></a>';
     // add links to webpage
     document.getElementById("addressList").innerHTML = "Google maps " + (window.location.pathname.split('/')[1] === "fi" ? "reittilinkit" : "route links") + " : " + ABlink + " " + BAlink + "<br />" + document.getElementById("addressList").innerHTML;
-});
